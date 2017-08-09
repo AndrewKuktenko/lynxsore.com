@@ -26,7 +26,7 @@
                 <?php foreach ($products as $product) : ?>
                 <tr>
                     <td class="cart_product">
-                        <a href=""><img src="/template/images/cart/one.png" alt=""></a>
+                        <a href=""><img src="<?php echo Product::getImage($product['id']); ?>" width="200" alt=""></a>
                     </td>
                     <td class="cart_description">
                         <h4><a href="/product/<?php echo $product['id']; ?>">
@@ -39,16 +39,16 @@
                     </td>
                     <td class="cart_quantity">
                         <div class="cart_quantity_button">
-                            <a class="cart_quantity_up" href=""> + </a>
+                            <a class="cart_quantity_up" href="/cart/add/<?php echo $product['id'];?>"> + </a>
                             <input class="cart_quantity_input" type="text" name="quantity" value="<?php echo $productsInCart[$product['id']];?>" autocomplete="off" size="2">
-                            <a class="cart_quantity_down" href=""> - </a>
+                            <a class="cart_quantity_down" href="/cart/less/<?php echo $product['id'];?>"> - </a>
                         </div>
                     </td>
                     <td class="cart_total">
                         <p class="cart_total_price">$59</p>
                     </td>
                     <td class="cart_delete">
-                        <a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+                        <a class="cart_quantity_delete" href="/cart/delete/<?php echo $product['id'];?>"><i class="fa fa-times"></i></a>
                     </td>
                 </tr>
                     <?php endforeach; ?>
@@ -135,7 +135,7 @@
                         <?php endif; ?>
                     </ul>
                     <a class="btn btn-default update" href="">Update</a>
-                    <a class="btn btn-default check_out" href="">Check Out</a>
+                    <a class="btn btn-default check_out" href="/cart/checkout">Check Out</a>
                 </div>
             </div>
         </div>

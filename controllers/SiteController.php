@@ -21,6 +21,8 @@ class SiteController
         $total = Product::getTotalProducts();
         $pagination = new Pagination($total,$page, $limit, 'page-');
 
+        $recommended = Product::getRecommendedProducts();
+
         require_once(ROOT.'/views/site/index.php');
 
         return true;

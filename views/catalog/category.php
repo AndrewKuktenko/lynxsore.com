@@ -47,7 +47,7 @@
                             <div class="product-image-wrapper">
                                 <div class="single-products">
                                     <div class="productinfo text-center">
-                                        <img src="/template/images/home/product1.jpg" alt="" />
+                                        <img src="<?php echo Product::getImage($productItem['id']); ?>" width="200" alt="" />
                                         <h2><?php echo $productItem['price'];?>$</h2>
                                         <p><a href="/product/<?php echo $productItem['id']; ?>"><?php echo $productItem['name'];?></a></p>
                                         <a href="/cart/add/<?php echo $productItem['id']; ?>" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>В корзину</a>

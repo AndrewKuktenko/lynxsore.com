@@ -886,7 +886,8 @@ h2.title {
 }
 
 .productinfo img{
-  width: 100%;
+  width: auto;
+  height: auto;
 }
 
 .productinfo{
@@ -1046,7 +1047,7 @@ h2.title {
   overflow: hidden;
 }
 
-#recommended-item-carousel .carousel-inner .item {
+#recommended-item-carousel .item {
   padding-left: 0;
 }
 

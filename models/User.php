@@ -33,6 +33,15 @@ class User
         return false;
     }
 
+    public static function checkPhone($phone)
+    {
+        if (is_numeric($phone) && strlen($phone) >= 10) {
+            return true;
+        }
+
+        return false;
+    }
+
     public static function checkPassword($password)
     {
         if (strlen($password >= 6)) {
@@ -110,6 +119,7 @@ class User
 
 
         if (isset($_SESSION['user'])) {
+
             return true;
         }
 
@@ -119,7 +129,7 @@ class User
     public static function getUserById($userId)
     {
         $db = Db::getConnection();
-        $sql = 'SELECT name, password FROM user WHERE id = :id';
+        $sql = 'SELECT name, password, role FROM user WHERE id = :id';
 
         $result = $db->prepare($sql);
         $result->bindParam(":id", $userId, PDO::PARAM_STR);
@@ -137,7 +147,6 @@ class User
 
         return $result->fetch();
 
-        return false;
     }
 
     public static function edit($userId,$name, $password)
